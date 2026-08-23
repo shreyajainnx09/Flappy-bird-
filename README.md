@@ -1,63 +1,93 @@
-# Flappy Bird 🐦
+<div align="center">
 
-A Python clone of the classic *Flappy Bird* game, built with [Pygame](https://www.pygame.org/). Flap the bird through a stream of pipes without hitting them or the ground — the longer you survive, the higher your score.
+# 🐦 Flappy Bird — Python Clone
 
-## Gameplay
+### A classic Flappy Bird recreation built with Python & Pygame
 
-- The bird continuously sinks toward the ground under gravity.
-- Click the mouse, or press **Up Arrow**, **Enter**, or **Spacebar**, to make the bird climb.
-- Pipes scroll in from the right at a steady pace, spawning at a fixed interval, with a randomized gap.
-- Score increases by 1 each time the bird passes a pipe.
-- The game ends if the bird hits a pipe, the ground, or the top of the screen.
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+[![Pygame](https://img.shields.io/badge/Pygame-000000?style=for-the-badge&logo=python&logoColor=white)](https://img.shields.io/badge/Pygame-000000?style=for-the-badge&logo=python&logoColor=white)
 
-## Controls
+</div>
 
-| Action | Key |
+---
+
+## 📌 Description
+
+A faithful clone of the classic **Flappy Bird** game, built entirely in Python using the Pygame library. Flap the bird through an endless series of pipes, rack up points for every pipe you clear, and try to beat your own high score — one wrong move and it's game over.
+
+## 🎮 Controls
+
+| Key | Action |
 |---|---|
-| Flap / climb | `Space`, `Enter`, `Up Arrow`, or mouse click |
-| Pause / resume | `P` or `Pause` |
-| Quit | `Esc` or close the window |
+| `↑` / `Space` / `Enter` | Flap (bird rises) |
+| Mouse Click | Flap (alternative to keyboard) |
+| `P` / `Pause` | Pause / Resume |
+| `Esc` | Quit |
 
-## Requirements
+## 🛠️ Tech Stack
 
-- Python 3
-- [Pygame](https://www.pygame.org/)
+| Technology | Purpose |
+|---|---|
+| 🐍 Python | Core game logic |
+| 🎮 Pygame | Rendering, input, sound, and game loop |
 
-Install Pygame with:
-
-```bash
-pip install pygame
-```
-
-## Running the game
-
-```bash
-python flappybird.py
-```
-
-## Project structure
+## 📁 Project Structure
 
 ```
 Flappy-bird-/
-├── flappybird.py       # Main game script (Bird, PipePair classes, game loop)
-├── background.png      # Background image
-├── ground.png           # Ground image
-├── bird.gif             # Bird animation preview
-├── bird_wing_up.png     # Bird sprite (wing up)
-├── bird_wing_down.png   # Bird sprite (wing down)
-├── pipe.png              # Pipe sprite
-├── pipe_body.png         # Pipe body segment
-└── pipe_end.png           # Pipe end cap
+│
+├── flappybird.py         → Main game script
+├── background.png        → Background sprite
+├── ground.png             → Ground sprite
+├── pipe.png               → Pipe sprite
+├── pipe_body.png          → Pipe body segment
+├── pipe_end.png           → Pipe end cap
+├── bird_wing_up.png       → Bird sprite (wing up)
+├── bird_wing_down.png     → Bird sprite (wing down)
+├── bird.gif               → Bird preview/demo
+└── requirements.txt       → Python dependencies
 ```
 
-> **Note:** `flappybird.py` loads images from an `images/` subfolder by default. If you keep the image files in the project root, either move them into an `images/` folder or update the paths in the `load_images()` function accordingly.
+## ⚙️ Setup
 
-## How it works
+```bash
+git clone https://github.com/shreyajainnx09/flappy-bird.git
+cd flappy-bird
 
-- **`Bird`** — a `pygame.sprite.Sprite` that tracks its vertical position, animates between two wing frames, and uses a cosine-eased climb when flapping, otherwise sinking at a constant speed.
-- **`PipePair`** — generates a top and bottom pipe with a randomized gap large enough for the bird to pass through, and scrolls leftward each frame.
-- **`main()`** — runs the game loop: spawns pipes at a fixed interval, handles input, checks collisions (via pixel-perfect mask collision), draws each frame, and tracks/display the score.
+python3 -m venv .venv
+source .venv/bin/activate      # on Windows: .venv\Scripts\activate
 
-## License
+pip install -r requirements.txt
+```
 
-No license specified. Add one if you plan to share or accept contributions.
+**`requirements.txt`**
+```
+pygame
+```
+
+## ▶️ Run
+
+```bash
+python3 flappybird.py
+```
+
+## 🧠 How It Works
+
+- The bird falls continuously under a constant **sink speed** (gravity).
+- Pressing the flap key/mouse button triggers a short **climb** phase, easing the bird upward over a brief duration before gravity takes back over.
+- Pipe pairs spawn at a fixed interval and scroll left across the screen at a constant speed.
+- Collision is checked with pixel-accurate masks between the bird sprite and the pipes/ground.
+- Score increments each time the bird clears a pipe pair.
+
+## 🌟 Ideas for Extending
+
+- Add a difficulty ramp (pipes speed up / gaps shrink as score increases)
+- Persist and display a local high score
+- Add sound effects for flapping, scoring, and collisions
+- Add a start screen and a proper game-over/restart screen
+- Animate the bird's wing-flap based on velocity rather than a fixed timer
+
+## 👩🏻‍💻 Author
+
+**Shreya Jain**
+BCA | Data Analytics | Python | SQL | Tableau
